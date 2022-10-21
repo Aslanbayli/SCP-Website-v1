@@ -1,10 +1,21 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const pool = require("./db");
 
 // Middleware
 app.use(cors());
-app.use(express.json());
+app.use(express.json()); // req.body
+
+// Routes
+
+// Create an account
+
+// Edit account info
+
+// Delete an account
+
+
 
 const PORT = 5000;
 

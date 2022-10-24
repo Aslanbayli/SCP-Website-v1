@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json()); // req.body
 
 // Routes
-
+    
 // Create an account
 
 // Edit account info

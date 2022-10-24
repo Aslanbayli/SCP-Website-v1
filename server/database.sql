@@ -38,7 +38,7 @@ CREATE TABLE Code_Snippets (
     s_description TEXT,
     programming_language VARCHAR(100),
     content TEXT,
-    username REFERENCES User NOT NULL,
+    username INTEGER REFERENCES User NOT NULL,
 );
 
 CREATE TABLE Events (

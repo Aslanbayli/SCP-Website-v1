@@ -17,7 +17,7 @@ app.use(express.json()); // req.body
 
 
 
-const PORT = 4000;
+const PORT = 3000;
 
 app.listen(PORT, () => {
     console.log(`Server has started at the port ${PORT}`);

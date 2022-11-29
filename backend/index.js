@@ -17,7 +17,7 @@ app.post("/addProblem", async(req, res) => {
         const newProblem = await pool.query(
             "INSERT INTO Problems (web_url, porblem_name, website_name, category, programming_language, difficulty) \
             VALUES ($1, $2, $3. $4, $5, $6) RETURNING *", [web_url, porblem_name, website_name, category, programming_language, difficulty]); 
-        res.json(newProblem.rows[0]);
+        res.json(newProblem);
     } catch (err) {
         console.log(err.message);
     }

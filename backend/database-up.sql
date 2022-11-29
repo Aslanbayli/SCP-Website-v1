@@ -17,12 +17,11 @@ CREATE TABLE Admin (
 ) INHERITS (Users);
 
 CREATE TABLE Problems (
-	problem_id SERIAL PRIMARY KEY UNIQUE ,
+	problem_id SERIAL PRIMARY KEY UNIQUE,
     web_url TEXT UNIQUE NOT NULL,
     problem_name VARCHAR(100),
     website_name VARCHAR(100),
     category VARCHAR(100),
-    programming_language VARCHAR(100),
     difficulty VARCHAR(100)
 );
 
@@ -57,5 +56,7 @@ CREATE TABLE Attends (
     CONSTRAINT user_fk FOREIGN KEY (user_id) REFERENCES Users,
     CONSTRAINT event_fk FOREIGN KEY (event_id) REFERENCES Events
 );
+
+
 
 

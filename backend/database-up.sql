@@ -1,6 +1,6 @@
 CREATE DATABASE scp_website;
 
-CREATE TABLE Users (
+CREATE TABLE users (
     user_id SERIAL PRIMARY KEY UNIQUE,
     username VARCHAR(100) UNIQUE NOT NULL,
     first_name VARCHAR(100),
@@ -11,12 +11,12 @@ CREATE TABLE Users (
     DOB DATE
 );
 
-CREATE TABLE Admin (
+CREATE TABLE admin (
     is_faculty BOOLEAN,
     e_board_position VARCHAR(100)
 ) INHERITS (Users);
 
-CREATE TABLE Problems (
+CREATE TABLE problems (
 	problem_id SERIAL PRIMARY KEY UNIQUE,
     web_url TEXT UNIQUE NOT NULL,
     problem_name VARCHAR(100),
@@ -25,13 +25,13 @@ CREATE TABLE Problems (
     difficulty VARCHAR(100)
 );
 
-CREATE TABLE Solved (
+CREATE TABLE solved (
     user_id INTEGER REFERENCES Users,
     problem_id INTEGER REFERENCES Problems,
     PRIMARY KEY (user_id)
 );
 
-CREATE TABLE CodeSnippets (
+CREATE TABLE codeSnippets (
     snippet_id SERIAL PRIMARY KEY UNIQUE,
     name VARCHAR(255),
     description TEXT,
@@ -40,7 +40,7 @@ CREATE TABLE CodeSnippets (
     username INTEGER REFERENCES Users NOT NULL
 );
 
-CREATE TABLE Events (
+CREATE TABLE events (
     event_id SERIAL PRIMARY KEY UNIQUE,
     name VARCHAR(100),
     description TEXT,
@@ -50,7 +50,7 @@ CREATE TABLE Events (
     date DATE
 );
 
-CREATE TABLE Attends (
+CREATE TABLE attends (
     user_id INTEGER PRIMARY KEY,
     event_id INTEGER,
     CONSTRAINT user_fk FOREIGN KEY (user_id) REFERENCES Users,

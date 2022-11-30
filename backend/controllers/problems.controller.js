@@ -147,6 +147,7 @@ const filterProblems = function(app, pool) {
     });
 }
 
+// Export the functions to reuse them
 module.exports = {
     addProblem,
     editProblemById,

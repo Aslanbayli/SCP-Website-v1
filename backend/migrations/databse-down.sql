@@ -1,13 +1,13 @@
-DROP TABLE Users;
+DROP TABLE users;
 
-DROP TABLE Admin;
+DROP TABLE admin;
 
-DROP TABLE Problems;
+DROP TABLE problems;
 
-DROP TABLE Solved;
+DROP TABLE solved;
 
-DROP TABLE CodeSnippets;
+DROP TABLE codeSnippets;
 
-DROP TABLE Events;
+DROP TABLE events;
 
-DROP TABLE Attends;
+DROP TABLE attends;

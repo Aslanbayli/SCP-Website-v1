@@ -9,7 +9,7 @@ CREATE TABLE users (
     DOB DATE
 );
 
-CREATE TABLE admin (
+CREATE TABLE admins (
     is_faculty BOOLEAN,
     e_board_position VARCHAR(100)
 ) INHERITS (Users);
@@ -29,13 +29,13 @@ CREATE TABLE solved (
     PRIMARY KEY (user_id, problem_id)
 );
 
-CREATE TABLE codeSnippets (
+CREATE TABLE code_snippets (
     snippet_id SERIAL PRIMARY KEY UNIQUE,
     name VARCHAR(255),
     description TEXT,
     programming_language VARCHAR(100),
     content TEXT,
-    username INTEGER REFERENCES Users NOT NULL
+    user_id INTEGER REFERENCES Users NOT NULL
 );
 
 

@@ -3,9 +3,8 @@ CREATE DATABASE scp_website;
 CREATE TABLE users (
     user_id SERIAL PRIMARY KEY UNIQUE,
     username VARCHAR(100) UNIQUE NOT NULL,
-    first_name VARCHAR(100),
-    last_name VARCHAR(100),
-    email VARCHAR(100) UNIQUE,
+    name VARCHAR(100),
+    email VARCHAR(255) UNIQUE,
     DOB DATE
 );
 
@@ -37,6 +36,7 @@ CREATE TABLE code_snippets (
     content TEXT,
     user_id INTEGER REFERENCES Users NOT NULL
 );
+
 
 
 

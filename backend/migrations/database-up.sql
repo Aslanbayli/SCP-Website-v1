@@ -5,9 +5,7 @@ CREATE TABLE users (
     username VARCHAR(100) UNIQUE NOT NULL,
     first_name VARCHAR(100),
     last_name VARCHAR(100),
-    usf_email VARCHAR(100) UNIQUE,
-    year_in_college INTEGER,
-    major VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
     DOB DATE
 );
 
@@ -28,7 +26,7 @@ CREATE TABLE problems (
 CREATE TABLE solved (
     user_id INTEGER REFERENCES Users,
     problem_id INTEGER REFERENCES Problems,
-    PRIMARY KEY (user_id)
+    PRIMARY KEY (user_id, problem_id)
 );
 
 CREATE TABLE codeSnippets (
@@ -51,10 +49,11 @@ CREATE TABLE events (
 );
 
 CREATE TABLE attends (
-    user_id INTEGER PRIMARY KEY,
+    user_id INTEGER,
     event_id INTEGER,
     CONSTRAINT user_fk FOREIGN KEY (user_id) REFERENCES Users,
-    CONSTRAINT event_fk FOREIGN KEY (event_id) REFERENCES Events
+    CONSTRAINT event_fk FOREIGN KEY (event_id) REFERENCES Events,
+    CONSTRAINT attends_pk PRIMARY KEY (user_id, event_id)
 );
 
 

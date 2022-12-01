@@ -122,7 +122,7 @@ const getAllProblems = function(app, pool) {
 const filterProblems = function(app, pool) {
     app.get("/filter-problems", async(req, res) => {
         try {
-            const currentUrl = "http://localhost:5000/filter-problems?difficulty=hard&category=string"; // Get the full url from frontend
+            const currentUrl = "http://localhost:5000/filter-problems?difficulty=hard&category=string&website_name=codeforces"; // Get the full url from frontend
             let q = url.parse(currentUrl, true);
             let obj = JSON.parse(JSON.stringify(q.query));
 

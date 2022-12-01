@@ -38,24 +38,6 @@ CREATE TABLE codeSnippets (
     username INTEGER REFERENCES Users NOT NULL
 );
 
-CREATE TABLE events (
-    event_id SERIAL PRIMARY KEY UNIQUE,
-    name VARCHAR(100),
-    description TEXT,
-    poster BYTEA,
-    location TEXT,
-    time TIME(0),
-    date DATE
-);
-
-CREATE TABLE attends (
-    user_id INTEGER,
-    event_id INTEGER,
-    CONSTRAINT user_fk FOREIGN KEY (user_id) REFERENCES Users,
-    CONSTRAINT event_fk FOREIGN KEY (event_id) REFERENCES Events,
-    CONSTRAINT attends_pk PRIMARY KEY (user_id, event_id)
-);
-
 
 
 

@@ -18,6 +18,16 @@ problems.deleteProblem(app, pool);
 problems.getAllProblems(app, pool);
 problems.filterProblems(app, pool);
 
+// Import code snippet methods
+const snippet = require("./controllers/snippet.controller");
+
+// Snipppet controllers
+snippet.addSnippet(app, pool);
+snippet.deleteSnippetById(app, pool);
+snippet.getAllSnippets(app, pool);
+snippet.editSnippetById(app, pool);
+snippet.filterSnippets(app, pool);
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server has started at the port ${PORT}`);

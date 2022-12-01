@@ -2,7 +2,7 @@ const url = require('url');
 
 // Create a problem
 const addProblem = function(app, pool) {
-    app.post("/add-problem", async(req, res) => {
+    app.post("/add-problem", async (req, res) => {
         try {
             // Get the params from the request body
             const { web_url, problem_name, website_name, category, difficulty } = req.body; 
@@ -13,9 +13,7 @@ const addProblem = function(app, pool) {
                 VALUES ($1, $2, $3, $4, $5) RETURNING *", [web_url, problem_name, website_name, category, difficulty]); 
 
             // Display the results in Postman
-            res.json("A new problem has been added successfully");
             res.json(newProblem.rows);
-
         } catch (err) {
             console.log(err.message);
         }
@@ -24,7 +22,7 @@ const addProblem = function(app, pool) {
 
 // Edit a problem
 const editProblemById = function(app, pool) {
-    app.put("/edit-problem/:id", async(req, res) => {
+    app.put("/edit-problem/:id", async (req, res) => {
         try {
             const { id } = req.params;
             const { web_url, problem_name, website_name, category, difficulty } = req.body;
@@ -89,10 +87,9 @@ const editProblemById = function(app, pool) {
     });
 };
 
-
 // Delete a problem
 const deleteProblem = function(app, pool) {
-    app.delete("/delete-problem/:id", async(req, res) => {
+    app.delete("/delete-problem/:id", async (req, res) => {
         try {
             const { id } = req.params; // Get the id from the route
     
@@ -105,10 +102,9 @@ const deleteProblem = function(app, pool) {
     });
 };
 
-
 // Display all problems
 const getAllProblems = function(app, pool) {
-    app.get("/all-problems", async(req, res) => {
+    app.get("/all-problems", async (req, res) => {
         try {
             const allproblems = await pool.query("SELECT * FROM problems");
             res.json(allproblems.rows)

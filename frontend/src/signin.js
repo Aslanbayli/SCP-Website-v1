@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Axios from 'axios';
+
 import {
   MDBContainer,
   MDBTabs,
@@ -16,23 +18,20 @@ function Auth() {
 
   const [justifyActive, setJustifyActive] = useState('tab1');
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const onSubmitForm = async (e) => {
-    e.preventDefault();
-    try {
-        const body = { email, password }
-        const response = await fetch("http://localhost:5000/sign-in", {
-          method: "GET",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(body)
-        });
-        console.log(response)
-    } catch (err) {
-        console.error(err.message);
-    }
-  }
+  // const onSubmitForm = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //       const body = { email, password }
+  //       const response = await fetch("http://localhost:5000/sign-in", {
+  //         method: "GET",
+  //         headers: { "Content-Type": "application/json" },
+  //         body: JSON.stringify(body)
+  //       });
+  //       console.log(response);
+  //   } catch (err) {
+  //       console.error(err.message);
+  //   }
+  // }
 
   const handleJustifyClick = (value) => {
     if (value === justifyActive) {
@@ -66,16 +65,10 @@ function Auth() {
             <h2>Sign in</h2>
           </div>
 
-          <form onSubmit={onSubmitForm}>
-            <MDBInput wrapperClass='mb-4' label='Email' id='form1' type='email'
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-            />
-            <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password'
-              value={password}
-              onChange = {e => setPassword(e.target.value)}
-            />
-          </form>
+     
+          <MDBInput wrapperClass='mb-4' label='Email' id='form1' type='email'/>
+          <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password'/>
+     
 
           <div className="d-flex justify-content-between mx-4 mb-4">
             <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />

@@ -24,10 +24,12 @@ const singUp = function (app, pool) {
             // Check if user already exists
             if (usernameArr.length !== 0) {
                 return res.status(400).json({
+                    status: "bad request",
                     error: `User with the username ${username} already exists.`,
                 });
             } else if (emailArr != 0) {
                 return res.status(400).json({
+                    status: "bad request",
                     error: `User with the email ${email} already exists.`,
                 });
             } else {
@@ -35,6 +37,7 @@ const singUp = function (app, pool) {
                 bcrypt.hash(password, 10, (err, hash) => {
                     if (err) {
                         res.status(err).json({
+                            status: "bad request",
                             error: "Hashing error",
                         });
                     }
@@ -55,6 +58,7 @@ const singUp = function (app, pool) {
                             if (err) {
                                 console.log(err.message);
                                 return res.status(500).json({
+                                    status: "database error",
                                     error: "Database error. Can't insert user.",
                                 });
                             } else {

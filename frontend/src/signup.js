@@ -34,20 +34,28 @@ function Auth() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  let flag = true;
+  const server = Axios.create({
+    baseURL: "http://localhost:5000"
+  });
 
-  const register = () => {
+  const register = async (e) => {
+    e.preventDefault();
     try {
-      Axios.post("http://localhost:5000/sign-up", {
-        username: username,
-        name: name, 
-        email: email, 
-        password: password
-      });
-     
-    } catch (err) {
-        console.error(err.response.data);
-        flag = false;
+        const response = await server.post('/sign-up', {
+          username: username,
+          name: name, 
+          email: email, 
+          password: password
+        });
+        console.log(response.data.status);
+        if (response.data.status === "success") {
+            nav("/sign-in");
+        } else {
+            alert("User already exists");
+        }
+    } catch (error) {
+        console.error(error);
+        alert("User already exists");
     }
   }
 

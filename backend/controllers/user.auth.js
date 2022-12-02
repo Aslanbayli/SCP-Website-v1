@@ -76,16 +76,17 @@ const signIn = function (app, pool) {
     try {
         app.get("/sign-in", async (req, res) => {
             // Get the login credentials
-            const { username, email, password } = req.body;
+            const { email, password } = req.body;
 
             // Check the username or email
             let existingUser;
-            if (username !== "") {
-                existingUser = await pool.query(
-                    "SELECT * FROM users WHERE username = $1",
-                    [username]
-                );
-            } else if (email !== "") {
+            // if (username !== "") {
+            //     existingUser = await pool.query(
+            //         "SELECT * FROM users WHERE username = $1",
+            //         [username]
+            //     );
+            // } else 
+            if (email !== "") {
                 existingUser = await pool.query(
                     "SELECT * FROM users WHERE email = $1",
                     [email]

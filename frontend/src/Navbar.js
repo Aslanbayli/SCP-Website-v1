@@ -8,11 +8,6 @@ import {
     MDBNavbarNav,
     MDBNavbarItem,
     MDBNavbarLink,
-    MDBBtn,
-    MDBDropdown,
-    MDBDropdownToggle,
-    MDBDropdownMenu,
-    MDBDropdownItem,
     MDBCollapse,
 } from 'mdb-react-ui-kit';
 import SCPLOGO from './images/scplogo.jpg'
@@ -23,8 +18,8 @@ export default function Navbar() {
     return (
         <MDBNavbar expand='lg' light bgColor='light'>
             <MDBContainer fluid>
-                <MDBNavbarBrand href='#'>
-                    <img src={SCPLOGO} height='40'></img>
+                <MDBNavbarBrand href='/'>
+                    <img src={SCPLOGO} height='40' alt=""></img>
 
                 </MDBNavbarBrand>
 
@@ -40,7 +35,7 @@ export default function Navbar() {
                 <MDBCollapse navbar show={showBasic}>
                     <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
                         <MDBNavbarItem>
-                            <MDBNavbarLink active aria-current='page' href='#'>
+                            <MDBNavbarLink active aria-current='page' href='/'>
                                 Home
                             </MDBNavbarLink>
                         </MDBNavbarItem>

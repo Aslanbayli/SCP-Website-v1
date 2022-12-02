@@ -22,6 +22,26 @@ import SCPLOGO from './images/scplogo.jpg'
 
 export default function Navbar() {
     const [showBasic, setShowBasic] = useState(false);
+    const [problems, setProblems] = useState([])
+    const [link, setLink] = useState([])
+    const [difficulty, setDifficulty] = useState([])
+
+    fetch('http://localhost:5000/all-problems')
+  .then((response) => response.json())
+  .then((data) => {
+    let results = [];
+    let difficulties = []
+    let links = []
+    for(var i = 0; i <data.length; i++){
+        results.push(data[i]);
+        difficulties.push(data[i].difficulty)
+        links.push(data[i].web_url)
+    }
+    setProblems(results);
+    setDifficulty(difficulties)
+    setLink(links)
+    // console.log(results)
+  })
 
     return (
         <>
@@ -99,19 +119,14 @@ export default function Navbar() {
                         </MDBCol>
                         <MDBCol md='4'>
                             <strong>Problem</strong>
-                            <div class="col-4">link</div>
-                            <div class="col-4">link</div>
-                            <div class="col-4">link</div>
-                            <div class="col-4">link</div>
-                            <div class="col-4">link</div>
+                            <strong>Problem</strong>
+                            {link.slice(1,5).map(link => <div class="col-4" ><a href={{link}}>{link}</a></div>)}
+                           
                         </MDBCol>
                         <MDBCol md='1'>
                             <strong>Difficulty</strong>
-                            <div class="col-4">Tag</div>
-                            <div class="col-4">Tag</div>
-                            <div class="col-4">Tag</div>
-                            <div class="col-4">Tag</div>
-                            <div class="col-4">Tag</div>
+                            {difficulty.slice(1,5).map(difficulty => <div class="col-4" >{difficulty}</div>)}
+
 
 
                         </MDBCol>

@@ -38,5 +38,4 @@ CREATE TABLE code_snippets (
     user_id INTEGER REFERENCES Users NOT NULL
 );
 
-ALTER TABLE users add column role varchar(100);
 

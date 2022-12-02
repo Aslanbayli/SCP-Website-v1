@@ -65,7 +65,7 @@ export default function Navbar() {
             </MDBNavbar>
 
 
-            {/* components for footer*/}
+
 
         </>
     );

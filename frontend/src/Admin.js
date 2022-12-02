@@ -1,6 +1,7 @@
 import React from 'react';
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
+import AdminPractice from "./Adminpractice";
 
 function Admin() {
     const logedIn = Cookies.get("LogedIn");
@@ -16,7 +17,7 @@ function Admin() {
    
     if (priviledge === "admin") {
         return (
-            <h1>Hello</h1>
+            <AdminPractice/>
         );
     } else {
         alert("You must be an admin");
@@ -27,8 +28,4 @@ function Admin() {
 }
 
 
-
-
-
-  
-            
+export default Admin;

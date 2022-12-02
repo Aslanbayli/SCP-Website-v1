@@ -65,7 +65,7 @@ export default function Navbar() {
             </MDBNavbar>
 
             {/* central image*/}
-            <img src={SLIDE1} className='img-fluid shadow-4' alt='...' />
+            <img src={SLIDE1} className='img-fluid shadow-4 slide1' alt='...' />
 
             {/* components for footer*/}
             <MDBFooter bgColor='light' className='text-center text-lg-start text-muted'>

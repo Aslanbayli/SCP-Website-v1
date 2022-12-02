@@ -1,7 +1,7 @@
 const url = require('url');
 
 // Create a problem
-const addProblem = function(app, pool) {
+const addProblem = function (app, pool) {
     app.post("/add-problem", async (req, res) => {
         try {
             // Get the params from the request body
@@ -21,7 +21,7 @@ const addProblem = function(app, pool) {
 };
 
 // Edit a problem
-const editProblemById = function(app, pool) {
+const editProblemById = function (app, pool) {
     app.put("/edit-problem/:id", async (req, res) => {
         try {
             const { id } = req.params;
@@ -88,7 +88,7 @@ const editProblemById = function(app, pool) {
 };
 
 // Delete a problem
-const deleteProblem = function(app, pool) {
+const deleteProblem = function (app, pool) {
     app.delete("/delete-problem/:id", async (req, res) => {
         try {
             const { id } = req.params; // Get the id from the route
@@ -103,7 +103,7 @@ const deleteProblem = function(app, pool) {
 };
 
 // Display all problems
-const getAllProblems = function(app, pool) {
+const getAllProblems = function (app, pool) {
     app.get("/all-problems", async (req, res) => {
         try {
             const allproblems = await pool.query("SELECT * FROM problems");
@@ -115,7 +115,7 @@ const getAllProblems = function(app, pool) {
 };
 
 // Filter problems using URL query parameters
-const filterProblems = function(app, pool) {
+const filterProblems = function (app, pool) {
     app.get("/filter-problems", async(req, res) => {
         try {
             const currentUrl = "http://localhost:5000/filter-problems?difficulty=hard&category=string"; // Get the full url from frontend

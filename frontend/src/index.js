@@ -4,6 +4,8 @@ import './index.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import App from './App';
 
+export const str = '';
+
 const container = document.getElementById("root");
 const root = createRoot(container);
 

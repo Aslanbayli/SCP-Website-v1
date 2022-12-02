@@ -52,6 +52,7 @@ function Auth() {
               const privilege = response.data.role;
               console.log(privilege);
               Cookies.set('privilege', privilege);
+              sessionStorage.setItem('UserName', email);
               nav("/");
           } else {
               alert("Invalid login credentials");

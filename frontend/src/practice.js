@@ -59,6 +59,12 @@ export default function Navbar() {
                             </MDBNavbarItem>
 
 
+                            <MDBNavbarItem>
+                                <MDBNavbarLink href='/codesnippets'>
+                                    Code Snippets</MDBNavbarLink>
+                            </MDBNavbarItem>
+
+
                         </MDBNavbarNav>
                         <MDBNavbarLink href='/sign-in'>Login</MDBNavbarLink>
 
@@ -92,7 +98,7 @@ export default function Navbar() {
                         </MDBCol>
                         <MDBCol md='6'>
                             <strong>Problem</strong>
-                            <div class="col-4">link</div>
+                            <div class="col-4"><a href="https://leetcode.com/problems/top-k-frequent-elements/" target="_blank">Top K Frequent Elements</a></div>
                             <div class="col-4">link</div>
                             <div class="col-4">link</div>
                             <div class="col-4">link</div>

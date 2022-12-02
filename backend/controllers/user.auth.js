@@ -1,9 +1,14 @@
 const bcrypt = require("bcrypt");
+const { check } = require('express-validator');
 
 // Sign up
 const singUp = function (app, pool) {
     try {
-        app.post("/sign-up", async (req, res) => {
+        app.post("/sign-up", [
+            check('email').isEmail().normalizeEmail(),
+            check('password').isLength({ min: 5 }).trim().escape()
+        ],
+        async (req, res) => {
             // Get the parameters
             const { username, name, email, password } = req.body;
 
@@ -80,7 +85,11 @@ const singUp = function (app, pool) {
 // Sign in
 const signIn = function (app, pool) {
     try {
-        app.post("/sign-in", async (req, res) => {
+        app.post("/sign-in", [
+            check('email').isEmail().normalizeEmail(),
+            check('password').isLength({ min: 5 }).trim().escape()
+        ],
+        async (req, res) => {
             // Get the login credentials
             const { email, password } = req.body;
 

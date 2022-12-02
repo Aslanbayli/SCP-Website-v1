@@ -1,4 +1,4 @@
-import React, { useState, Context } from 'react';
+import React, { useState } from 'react';
 import Axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
@@ -33,7 +33,6 @@ function Auth() {
   });
 
   const nav = useNavigate();
-
       
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

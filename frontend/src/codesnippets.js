@@ -12,7 +12,9 @@ import {
 } from 'mdb-react-ui-kit';
 import SCPLOGO from './images/scplogo.jpg'
 import Snippet from './component/snippet'
-export default function Navbar() {
+
+
+export default function CodeSippet() {
     const [showBasic, setShowBasic] = useState(false);
 
     return (

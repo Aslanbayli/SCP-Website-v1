@@ -4,9 +4,9 @@ CREATE TABLE users (
     user_id SERIAL PRIMARY KEY UNIQUE,
     username VARCHAR(100) UNIQUE NOT NULL,
     name VARCHAR(100),
-	DOB DATE,
     email TEXT NOT NULL UNIQUE,
-   	password TEXT NOT NULL
+   	password TEXT NOT NULL,
+	role VARCHAR(100)
 );
 
 CREATE TABLE admins (
@@ -38,4 +38,5 @@ CREATE TABLE code_snippets (
     user_id INTEGER REFERENCES Users NOT NULL
 );
 
+ALTER TABLE users add column role varchar(100);
 

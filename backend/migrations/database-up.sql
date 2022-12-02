@@ -4,8 +4,9 @@ CREATE TABLE users (
     user_id SERIAL PRIMARY KEY UNIQUE,
     username VARCHAR(100) UNIQUE NOT NULL,
     name VARCHAR(100),
-    email VARCHAR(255) UNIQUE,
-    DOB DATE
+	DOB DATE,
+    email TEXT NOT NULL UNIQUE,
+   	password TEXT NOT NULL
 );
 
 CREATE TABLE admins (
@@ -36,8 +37,5 @@ CREATE TABLE code_snippets (
     content TEXT,
     user_id INTEGER REFERENCES Users NOT NULL
 );
-
-
-
 
 

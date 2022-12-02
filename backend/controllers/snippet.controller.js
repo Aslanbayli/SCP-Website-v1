@@ -1,8 +1,8 @@
 const url = require('url');
 
 // Add a code snippet
-const addSnippet = function(app, pool) {
-    app.post("/add-snippet", async(req, res) => {
+const addSnippet = function (app, pool) {
+    app.post("/add-snippet", async (req, res) => {
         try {
             // Get the params from the request body
             const { name, description, programming_language, content, user_id } = req.body;
@@ -21,7 +21,7 @@ const addSnippet = function(app, pool) {
 };
 
 // Delete a code snippet
-const deleteSnippetById = function(app, pool) {
+const deleteSnippetById = function (app, pool) {
     app.delete("/delete-snippet/:id", async (req, res) => {
         try {
             const { id } = req.params;
@@ -35,7 +35,7 @@ const deleteSnippetById = function(app, pool) {
 };
 
 // Display all code snippets
-const getAllSnippets = function(app, pool) {
+const getAllSnippets = function (app, pool) {
     app.get("/all-snippets", async (req, res) => {
         try {
             const allSnippets = await pool.query("SELECT * FROM code_snippets");
@@ -47,7 +47,7 @@ const getAllSnippets = function(app, pool) {
 };
 
 // Edit a snippet
-const editSnippetById = function(app, pool) {
+const editSnippetById = function (app, pool) {
     app.put("/edit-snippet/:id", async (req, res) => {
         try {
             const { id } = req.params;
@@ -114,7 +114,7 @@ const editSnippetById = function(app, pool) {
 };
 
 // Filter snippets using URL query parameters
-const filterSnippets = function(app, pool) {
+const filterSnippets = function (app, pool) {
     app.get("/filter-snippets", async(req, res) => {
         try {
             const currentUrl = "http://localhost:5000/filter-snippets?name=dijkstra&programming_language=cpp"; // Get the full url from frontend

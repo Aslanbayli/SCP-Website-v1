@@ -8,6 +8,13 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json()); // req.body
 
+// Connect to the database
+pool.connect((err) => {
+    if (err) {
+        console.log(err.message);
+    }
+});
+
 // Import problem methods    
 const problems = require("./controllers/problems.controller");
 
@@ -27,6 +34,12 @@ snippet.deleteSnippetById(app, pool);
 snippet.getAllSnippets(app, pool);
 snippet.editSnippetById(app, pool);
 snippet.filterSnippets(app, pool);
+
+// Import user auth methods
+const user = require("./controllers/user.auth");
+
+user.singUp(app, pool);
+user.signIn(app, pool);
 
 // Start the server
 app.listen(PORT, () => {

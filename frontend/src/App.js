@@ -7,11 +7,13 @@ import Signup from './signup';
 import Practice from './practice';
 import Codesnippets from './codesnippets';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Adminpractice from './Adminpractice';
 
 function App() {
   return (
     <Router>
       <Routes>
+        <Route exact path="/Adminpractice" element={<Adminpractice />} />
         <Route exact path="/codesnippets" element={<Codesnippets />} />
         <Route exact path="/sign-in" element={<Signin />} />
         <Route exact path="/practice" element={<Practice />} />

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 import {
   MDBContainer,
@@ -41,6 +42,38 @@ function Auth() {
     setJustifyActive(value);
   };
 
+  const nav = useNavigate();
+  
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  var status = 0;
+  let flag = true;
+
+  const login = () => {
+    try {
+      Axios.post("http://localhost:5000/sign-in", {
+        email: email, 
+        password: password
+      }).catch(err => {       
+        status = err.response.status;
+        console.log(err.response.status);
+        console.log(status);
+        flag = false;
+        if (flag) {
+          alert("Success")
+        }
+      });
+
+      
+    } catch (err) {
+      console.error(err.message);
+    }
+  }
+ 
+
+  
+
   return (
     <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
 
@@ -66,15 +99,24 @@ function Auth() {
           </div>
 
      
-          <MDBInput wrapperClass='mb-4' label='Email' id='form1' type='email'/>
-          <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password'/>
-     
+          <MDBInput wrapperClass='mb-4' label='Email' id='form1' type='email'
+            value={email}
+            onChange={e => {
+              setEmail(e.target.value);
+            }}
+          />
+          <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password'
+            value={password}
+            onChange = { e => {
+              setPassword(e.target.value);
+            }}
+          />
 
           <div className="d-flex justify-content-between mx-4 mb-4">
             <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
           </div>
 
-          <MDBBtn className="mb-4 w-100">Sign in</MDBBtn>
+          <MDBBtn className="mb-4 w-100" onClick={login}>Sign in</MDBBtn>
           <p className="text-center">Back to <a href="/">Home Page</a></p>
 
         </MDBTabsPane>

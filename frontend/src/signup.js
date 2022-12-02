@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 import {
   MDBContainer,
@@ -26,10 +27,14 @@ function Auth() {
     setJustifyActive(value);
   };
 
+  const nav = useNavigate();
+
   const [username, setUsername] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  let flag = true;
 
   const register = () => {
     try {
@@ -38,13 +43,16 @@ function Auth() {
         name: name, 
         email: email, 
         password: password
-      }).then((response) => {
-        console.log(response);
       });
+     
     } catch (err) {
         console.error(err.response.data);
+        flag = false;
     }
- 
+    if (flag) {
+      alert("Succesfully signed up!");
+      nav("/");
+    }
   }
 
   return (
@@ -101,6 +109,7 @@ function Auth() {
           </div>
 
           <MDBBtn className="mb-4 w-100" onClick={register}>Sign up</MDBBtn>
+
 
         </MDBTabsPane>
 

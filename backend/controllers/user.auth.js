@@ -73,7 +73,7 @@ const singUp = function (app, pool) {
 // Sign in
 const signIn = function (app, pool) {
     try {
-        app.get("/sign-in", async (req, res) => {
+        app.post("/sign-in", async (req, res) => {
             // Get the login credentials
             const { email, password } = req.body;
 

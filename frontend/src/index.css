@@ -17,3 +17,11 @@ code {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.col-4 {
+  margin: 10px;
+}
+
+#checkboxNoLabel {
+  margin: 10px;
+}

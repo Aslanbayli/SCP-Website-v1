@@ -14,13 +14,13 @@ import {
     MDBRow,
     MDBCol,
     MDBFooter,
+    MDBBtn,
 } from 'mdb-react-ui-kit';
 import SCPLOGO from './images/scplogo.jpg'
-import { json } from 'react-router-dom';
 
- 
 
-export default function Practice() {
+
+export default function Navbar() {
     const [showBasic, setShowBasic] = useState(false);
     const [problems, setProblems] = useState([])
     const [link, setLink] = useState([])
@@ -42,7 +42,6 @@ export default function Practice() {
     setLink(links)
     // console.log(results)
   })
-
 
     return (
         <>
@@ -99,7 +98,7 @@ export default function Practice() {
             <MDBAccordion initialActive={0}>
                 <MDBAccordionItem collapseId={1} headerTitle='Weekly Challenges'>
                     <MDBRow>
-                        <MDBCol md='3'>
+                        <MDBCol md='1'>
                             <strong>Status</strong>
                             <div>
                                 <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="..." />
@@ -118,22 +117,52 @@ export default function Practice() {
                             </div>
 
                         </MDBCol>
-                        <MDBCol md='6'>
+                        <MDBCol md='4'>
+                            <strong>Problem</strong>
                             <strong>Problem</strong>
                             {link.slice(1,5).map(link => <div class="col-4" ><a href={{link}}>{link}</a></div>)}
-                            <div class="col-4"><a href="https://leetcode.com/problems/top-k-frequent-elements/" target="_blank">Top K Frequent Elements</a></div>
-                            
+                           
                         </MDBCol>
-                        <MDBCol md='3'>
+                        <MDBCol md='1'>
                             <strong>Difficulty</strong>
                             {difficulty.slice(1,5).map(difficulty => <div class="col-4" >{difficulty}</div>)}
-                            
+
+
+
+                        </MDBCol>
+
+                        <MDBCol md='2'>
+                            <strong>Add</strong>
+                            <div class="col-4"><MDBBtn size='sm'>Button</MDBBtn></div>
+                            <div class="col-4"><MDBBtn size='sm'>Button</MDBBtn></div>
+                            <div class="col-4"><MDBBtn size='sm'>Button</MDBBtn></div>
+                            <div class="col-4"><MDBBtn size='sm'>Button</MDBBtn></div>
+                            <div class="col-4"><MDBBtn size='sm'>Button</MDBBtn></div>
+
+
+                        </MDBCol>
+
+                        <MDBCol md='2'>
+                            <strong>Delete</strong>
+                            <div class="col-4"> <MDBBtn size='sm' className='mx-2' color='danger'>
+                                Delete
+                            </MDBBtn></div>
+                            <div class="col-4"> <MDBBtn size='sm' className='mx-2' color='danger'>
+                                Delete
+                            </MDBBtn></div><div class="col-4"> <MDBBtn size='sm' className='mx-2' color='danger'>
+                                Delete
+                            </MDBBtn></div><div class="col-4"> <MDBBtn size='sm' className='mx-2' color='danger'>
+                                Delete
+                            </MDBBtn></div><div class="col-4"> <MDBBtn size='sm' className='mx-2' color='danger'>
+                                Delete
+                            </MDBBtn></div>
 
                         </MDBCol>
                     </MDBRow>
-                </MDBAccordionItem><MDBAccordionItem collapseId={2} headerTitle='Arrays And Hashing'>
+                </MDBAccordionItem>
+                <MDBAccordionItem collapseId={2} headerTitle='Arrays And Hashing'>
                     <MDBRow>
-                        <MDBCol md='3'>
+                        <MDBCol md='1'>
                             <strong>Status</strong>
                             <div>
                                 <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="..." />
@@ -152,26 +181,57 @@ export default function Practice() {
                             </div>
 
                         </MDBCol>
-                        <MDBCol md='6'>
+                        <MDBCol md='4'>
                             <strong>Problem</strong>
-                            {/* <div class="col-4">{problems.map(problem => {console.log(problem)})}</div> */}
                             <div class="col-4">link</div>
-                          
+                            <div class="col-4">link</div>
+                            <div class="col-4">link</div>
+                            <div class="col-4">link</div>
+                            <div class="col-4">link</div>
                         </MDBCol>
-                        <MDBCol md='3'>
+                        <MDBCol md='1'>
                             <strong>Difficulty</strong>
                             <div class="col-4">Tag</div>
                             <div class="col-4">Tag</div>
                             <div class="col-4">Tag</div>
                             <div class="col-4">Tag</div>
                             <div class="col-4">Tag</div>
+
+
+                        </MDBCol>
+
+                        <MDBCol md='2'>
+                            <strong>Add</strong>
+                            <div class="col-4"><MDBBtn size='sm'>Button</MDBBtn></div>
+                            <div class="col-4"><MDBBtn size='sm'>Button</MDBBtn></div>
+                            <div class="col-4"><MDBBtn size='sm'>Button</MDBBtn></div>
+                            <div class="col-4"><MDBBtn size='sm'>Button</MDBBtn></div>
+                            <div class="col-4"><MDBBtn size='sm'>Button</MDBBtn></div>
+
+
+                        </MDBCol>
+
+                        <MDBCol md='2'>
+                            <strong>Delete</strong>
+                            <div class="col-4"> <MDBBtn size='sm' className='mx-2' color='danger'>
+                                Delete
+                            </MDBBtn></div>
+                            <div class="col-4"> <MDBBtn size='sm' className='mx-2' color='danger'>
+                                Delete
+                            </MDBBtn></div><div class="col-4"> <MDBBtn size='sm' className='mx-2' color='danger'>
+                                Delete
+                            </MDBBtn></div><div class="col-4"> <MDBBtn size='sm' className='mx-2' color='danger'>
+                                Delete
+                            </MDBBtn></div><div class="col-4"> <MDBBtn size='sm' className='mx-2' color='danger'>
+                                Delete
+                            </MDBBtn></div>
 
                         </MDBCol>
                     </MDBRow>
                 </MDBAccordionItem>
                 <MDBAccordionItem collapseId={3} headerTitle='Linked List'>
                     <MDBRow>
-                        <MDBCol md='3'>
+                        <MDBCol md='1'>
                             <strong>Status</strong>
                             <div>
                                 <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="..." />
@@ -190,7 +250,7 @@ export default function Practice() {
                             </div>
 
                         </MDBCol>
-                        <MDBCol md='6'>
+                        <MDBCol md='4'>
                             <strong>Problem</strong>
                             <div class="col-4">link</div>
                             <div class="col-4">link</div>
@@ -198,7 +258,7 @@ export default function Practice() {
                             <div class="col-4">link</div>
                             <div class="col-4">link</div>
                         </MDBCol>
-                        <MDBCol md='3'>
+                        <MDBCol md='1'>
                             <strong>Difficulty</strong>
                             <div class="col-4">Tag</div>
                             <div class="col-4">Tag</div>
@@ -206,52 +266,41 @@ export default function Practice() {
                             <div class="col-4">Tag</div>
                             <div class="col-4">Tag</div>
 
-                        </MDBCol>
-                    </MDBRow>
-                </MDBAccordionItem>
-                <MDBAccordionItem collapseId={4} headerTitle='Sorting'>
-                    <MDBRow>
-                        <MDBCol md='3'>
-                            <strong>Status</strong>
-                            <div>
-                                <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="..." />
-                            </div>
-                            <div>
-                                <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="..." />
-                            </div>
-                            <div>
-                                <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="..." />
-                            </div>
-                            <div>
-                                <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="..." />
-                            </div>
-                            <div>
-                                <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="..." />
-                            </div>
 
                         </MDBCol>
-                        <MDBCol md='6'>
-                            <strong>Problem</strong>
-                            <div class="col-4">link</div>
-                            <div class="col-4">link</div>
-                            <div class="col-4">link</div>
-                            <div class="col-4">link</div>
-                            <div class="col-4">link</div>
+
+                        <MDBCol md='2'>
+                            <strong>Add</strong>
+                            <div class="col-4"><MDBBtn size='sm'>Button</MDBBtn></div>
+                            <div class="col-4"><MDBBtn size='sm'>Button</MDBBtn></div>
+                            <div class="col-4"><MDBBtn size='sm'>Button</MDBBtn></div>
+                            <div class="col-4"><MDBBtn size='sm'>Button</MDBBtn></div>
+                            <div class="col-4"><MDBBtn size='sm'>Button</MDBBtn></div>
+
+
                         </MDBCol>
-                        <MDBCol md='3'>
-                            <strong>Difficulty</strong>
-                            <div class="col-4">Tag</div>
-                            <div class="col-4">Tag</div>
-                            <div class="col-4">Tag</div>
-                            <div class="col-4">Tag</div>
-                            <div class="col-4">Tag</div>
+
+                        <MDBCol md='2'>
+                            <strong>Delete</strong>
+                            <div class="col-4"> <MDBBtn size='sm' className='mx-2' color='danger'>
+                                Delete
+                            </MDBBtn></div>
+                            <div class="col-4"> <MDBBtn size='sm' className='mx-2' color='danger'>
+                                Delete
+                            </MDBBtn></div><div class="col-4"> <MDBBtn size='sm' className='mx-2' color='danger'>
+                                Delete
+                            </MDBBtn></div><div class="col-4"> <MDBBtn size='sm' className='mx-2' color='danger'>
+                                Delete
+                            </MDBBtn></div><div class="col-4"> <MDBBtn size='sm' className='mx-2' color='danger'>
+                                Delete
+                            </MDBBtn></div>
 
                         </MDBCol>
                     </MDBRow>
                 </MDBAccordionItem>
                 <MDBAccordionItem collapseId={5} headerTitle='Stack'>
                     <MDBRow>
-                        <MDBCol md='3'>
+                        <MDBCol md='1'>
                             <strong>Status</strong>
                             <div>
                                 <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="..." />
@@ -270,7 +319,7 @@ export default function Practice() {
                             </div>
 
                         </MDBCol>
-                        <MDBCol md='6'>
+                        <MDBCol md='4'>
                             <strong>Problem</strong>
                             <div class="col-4">link</div>
                             <div class="col-4">link</div>
@@ -278,13 +327,42 @@ export default function Practice() {
                             <div class="col-4">link</div>
                             <div class="col-4">link</div>
                         </MDBCol>
-                        <MDBCol md='3'>
+                        <MDBCol md='1'>
                             <strong>Difficulty</strong>
                             <div class="col-4">Tag</div>
                             <div class="col-4">Tag</div>
                             <div class="col-4">Tag</div>
                             <div class="col-4">Tag</div>
                             <div class="col-4">Tag</div>
+
+
+                        </MDBCol>
+
+                        <MDBCol md='2'>
+                            <strong>Add</strong>
+                            <div class="col-4"><MDBBtn size='sm'>Button</MDBBtn></div>
+                            <div class="col-4"><MDBBtn size='sm'>Button</MDBBtn></div>
+                            <div class="col-4"><MDBBtn size='sm'>Button</MDBBtn></div>
+                            <div class="col-4"><MDBBtn size='sm'>Button</MDBBtn></div>
+                            <div class="col-4"><MDBBtn size='sm'>Button</MDBBtn></div>
+
+
+                        </MDBCol>
+
+                        <MDBCol md='2'>
+                            <strong>Delete</strong>
+                            <div class="col-4"> <MDBBtn size='sm' className='mx-2' color='danger'>
+                                Delete
+                            </MDBBtn></div>
+                            <div class="col-4"> <MDBBtn size='sm' className='mx-2' color='danger'>
+                                Delete
+                            </MDBBtn></div><div class="col-4"> <MDBBtn size='sm' className='mx-2' color='danger'>
+                                Delete
+                            </MDBBtn></div><div class="col-4"> <MDBBtn size='sm' className='mx-2' color='danger'>
+                                Delete
+                            </MDBBtn></div><div class="col-4"> <MDBBtn size='sm' className='mx-2' color='danger'>
+                                Delete
+                            </MDBBtn></div>
 
                         </MDBCol>
                     </MDBRow>

@@ -49,9 +49,9 @@ function Auth() {
           if (response.data.status === "success") {
               Cookies.set('email', email);
               Cookies.set('LogedIn', "true");
-              const privilege = response.data.role;
-              console.log(privilege);
-              Cookies.set('privilege', privilege);
+              const priviledge = response.data.role;
+              console.log(priviledge);
+              Cookies.set('priviledge', priviledge);
               nav("/");
           } else {
               alert("Invalid login credentials");

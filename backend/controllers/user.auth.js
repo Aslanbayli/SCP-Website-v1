@@ -5,7 +5,7 @@ const singUp = function (app, pool) {
     try {
         app.post("/sign-up", async (req, res) => {
             // Get the parameters
-            const { username, name, dob, email, password } = req.body;
+            const { username, name, email, password } = req.body;
 
             // Check if user with username exists
             const usernameData = await pool.query(
@@ -42,16 +42,15 @@ const singUp = function (app, pool) {
                     const user = {
                         username,
                         name,
-                        dob,
                         email,
                         password: hash,
                     };
 
                     // insert the user into database
                     pool.query(
-                        "INSERT INTO users (username, name, DOB, email, password) \
-                    VALUES ($1, $2, $3, $4, $5) RETURNING *",
-                        [user.username, user.name, user.dob, user.email, user.password],
+                        "INSERT INTO users (username, name, email, password) \
+                    VALUES ($1, $2, $3, $4) RETURNING *",
+                        [user.username, user.name, user.email, user.password],
                         (err) => {
                             if (err) {
                                 console.log(err.message);
@@ -76,16 +75,17 @@ const signIn = function (app, pool) {
     try {
         app.get("/sign-in", async (req, res) => {
             // Get the login credentials
-            const { username, email, password } = req.body;
+            const { email, password } = req.body;
 
             // Check the username or email
             let existingUser;
-            if (username !== "") {
-                existingUser = await pool.query(
-                    "SELECT * FROM users WHERE username = $1",
-                    [username]
-                );
-            } else if (email !== "") {
+            // if (username !== "") {
+            //     existingUser = await pool.query(
+            //         "SELECT * FROM users WHERE username = $1",
+            //         [username]
+            //     );
+            // } else 
+            if (email !== "") {
                 existingUser = await pool.query(
                     "SELECT * FROM users WHERE email = $1",
                     [email]

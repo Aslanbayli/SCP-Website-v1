@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Axios from 'axios';
+
 import {
   MDBContainer,
   MDBTabs,
@@ -7,7 +9,6 @@ import {
   MDBTabsContent,
   MDBTabsPane,
   MDBBtn,
-  MDBIcon,
   MDBInput,
   MDBCheckbox
 }
@@ -15,7 +16,22 @@ from 'mdb-react-ui-kit';
 
 function Auth() {
 
-  const [justifyActive, setJustifyActive] = useState('tab1');;
+  const [justifyActive, setJustifyActive] = useState('tab1');
+
+  // const onSubmitForm = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //       const body = { email, password }
+  //       const response = await fetch("http://localhost:5000/sign-in", {
+  //         method: "GET",
+  //         headers: { "Content-Type": "application/json" },
+  //         body: JSON.stringify(body)
+  //       });
+  //       console.log(response);
+  //   } catch (err) {
+  //       console.error(err.message);
+  //   }
+  // }
 
   const handleJustifyClick = (value) => {
     if (value === justifyActive) {
@@ -49,16 +65,17 @@ function Auth() {
             <h2>Sign in</h2>
           </div>
 
-          <MDBInput wrapperClass='mb-4' label='Email address' id='form1' type='email'/>
+     
+          <MDBInput wrapperClass='mb-4' label='Email' id='form1' type='email'/>
           <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password'/>
+     
 
           <div className="d-flex justify-content-between mx-4 mb-4">
             <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
-            <a href="!#">Forgot password?</a>
           </div>
 
           <MDBBtn className="mb-4 w-100">Sign in</MDBBtn>
-          <p className="text-center">Not a member? <a href="#!">Register</a></p>
+          <p className="text-center">Back to <a href="/">Home Page</a></p>
 
         </MDBTabsPane>
         

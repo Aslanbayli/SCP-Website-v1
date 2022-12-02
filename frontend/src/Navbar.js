@@ -56,6 +56,12 @@ export default function Navbar() {
                                     BullsConnect</MDBNavbarLink>
                             </MDBNavbarItem>
 
+                            <MDBNavbarItem>
+                                <MDBNavbarLink href='/codesnippets'>
+                                    Code Snippets</MDBNavbarLink>
+                            </MDBNavbarItem>
+
+
 
                         </MDBNavbarNav>
                         <MDBNavbarLink href='/sign-in'>Login</MDBNavbarLink>

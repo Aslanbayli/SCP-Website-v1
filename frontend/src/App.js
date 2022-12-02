@@ -3,8 +3,8 @@ import Signin from './signin';
 import Landing from './Navbar';
 import './index.css';
 import Signup from './signup';
-
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import Practice from './practice';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 // function App() {
 //   return (
@@ -16,9 +16,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/sign-in" element={<Signin/>} />
-        <Route exact path="/" element={<Landing/>} />
-        <Route exact path="/sign-up" element={<Signup/>} />
+        <Route exact path="/sign-in" element={<Signin />} />
+        <Route exact path="/practice" element={<Practice />} />
+        <Route exact path="/" element={<Landing />} />
+        <Route exact path="/sign-up" element={<Signup />} />
       </Routes>
     </Router>
   );

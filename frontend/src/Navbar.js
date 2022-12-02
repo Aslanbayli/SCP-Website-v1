@@ -95,7 +95,7 @@ export default function Navbar() {
                             <MDBCol md='3' lg='4' xl='3' className='mx-auto mb-4'>
                                 <h6 className='text-uppercase fw-bold mb-4'>
                                     <MDBIcon color='secondary' icon='gem' className='me-3' />
-                                    Society of Competitive
+                                    Society of Competitive Programmers
                                 </h6>
                                 <p>
                                     The Society of Competitive Programmers is dedicated to encouraging students to participate in programming competitions and hackathons.

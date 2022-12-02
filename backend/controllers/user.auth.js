@@ -58,7 +58,10 @@ const singUp = function (app, pool) {
                                     error: "Database error. Can't insert user.",
                                 });
                             } else {
-                                res.status(200).json("User has been added");
+                                res.status(200).json({
+                                    status: "success",
+                                    message: "User has been added."
+                                });
                             }
                         }
                     );
@@ -77,14 +80,8 @@ const signIn = function (app, pool) {
             // Get the login credentials
             const { email, password } = req.body;
 
-            // Check the username or email
+            // Check the email
             let existingUser;
-            // if (username !== "") {
-            //     existingUser = await pool.query(
-            //         "SELECT * FROM users WHERE username = $1",
-            //         [username]
-            //     );
-            // } else 
             if (email !== "") {
                 existingUser = await pool.query(
                     "SELECT * FROM users WHERE email = $1",
@@ -98,6 +95,7 @@ const signIn = function (app, pool) {
             // Check if user has an account
             if (user.length === 0) {
                 res.status(400).json({
+                    status: "bad request",
                     error: "User is not registered, please sign up first.",
                 });
             } else {
@@ -105,13 +103,21 @@ const signIn = function (app, pool) {
                 bcrypt.compare(password, user[0].password, (err, result) => {
                     if (err) {
                         res.status(400).json({
+                            status: "bad request",
                             error: "Server error",
                         });
                     } else if (result === true) {
-                        res.status(200).json("User signed in successfully.");
+                        res.status(200).json({
+                            status: "success",
+                            message: "User signed in successfully.",
+                            role: existingUser.rows[0].role
+                        });
                     } else {
                         if (result !== true) {
-                            res.status(400).json("Incorrect password!");
+                            res.status(400).json({
+                                status: "bad request",
+                                error: "Incorrect password!"
+                            });
                         }
                     }
                 });

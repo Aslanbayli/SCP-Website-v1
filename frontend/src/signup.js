@@ -49,10 +49,6 @@ function Auth() {
         console.error(err.response.data);
         flag = false;
     }
-    if (flag) {
-      alert("Succesfully signed up!");
-      nav("/");
-    }
   }
 
   return (
@@ -109,7 +105,7 @@ function Auth() {
           </div>
 
           <MDBBtn className="mb-4 w-100" onClick={register}>Sign up</MDBBtn>
-
+          <p className="text-center">Back to <a href="/">Home Page</a></p>
 
         </MDBTabsPane>
 

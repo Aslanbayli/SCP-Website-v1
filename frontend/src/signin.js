@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, Context } from 'react';
 import Axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 import {
   MDBContainer,
@@ -19,21 +20,6 @@ function Auth() {
 
   const [justifyActive, setJustifyActive] = useState('tab1');
 
-  // const onSubmitForm = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //       const body = { email, password }
-  //       const response = await fetch("http://localhost:5000/sign-in", {
-  //         method: "GET",
-  //         headers: { "Content-Type": "application/json" },
-  //         body: JSON.stringify(body)
-  //       });
-  //       console.log(response);
-  //   } catch (err) {
-  //       console.error(err.message);
-  //   }
-  // }
-
   const handleJustifyClick = (value) => {
     if (value === justifyActive) {
       return;
@@ -42,41 +28,46 @@ function Auth() {
     setJustifyActive(value);
   };
 
+  const server = Axios.create({
+    baseURL: "http://localhost:5000"
+  });
+
   const nav = useNavigate();
-  
+
+      
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  var status = 0;
-  let flag = true;
+  const login = async (e) => {
+      e.preventDefault();
+      try {
+          const response = await server.post('/sign-in', {
+            email: email, 
+            password: password
+          });
+          console.log(response.data.status);
+          if (response.data.status === "success") {
+              Cookies.set('email', email);
+              Cookies.set('LogedIn', "true");
+              const privilege = response.data.role;
+              console.log(privilege);
+              Cookies.set('privilege', privilege);
+              nav("/");
+          } else {
+              alert("Invalid login credentials");
+          }
+      } catch (error) {
+          console.error(error);
+          alert("Invalid login credentials");
+      }
 
-  const login = () => {
-    try {
-      Axios.post("http://localhost:5000/sign-in", {
-        email: email, 
-        password: password
-      }).catch(err => {       
-        status = err.response.status;
-        console.log(err.response.status);
-        console.log(status);
-        flag = false;
-        if (flag) {
-          alert("Success")
-        }
-      });
-
-      
-    } catch (err) {
-      console.error(err.message);
-    }
-  }
- 
-
+    }  
   
 
   return (
-    <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
 
+    <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
+      
       <MDBTabs pills justify className='mb-3 d-flex flex-row justify-content-between'>
         <MDBTabsItem>
           <MDBTabsLink onClick={() => handleJustifyClick('tab1')} active={justifyActive === 'tab1'}>
@@ -128,4 +119,3 @@ function Auth() {
 }
 
 export default Auth;
-

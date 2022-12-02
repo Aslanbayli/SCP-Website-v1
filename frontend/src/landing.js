@@ -12,8 +12,6 @@ import {
 } from 'mdb-react-ui-kit';
 
 export default function App() {
-  const [showNavColor, setShowNavColor] = useState(false);
-  const [showNavColorSecond, setShowNavColorSecond] = useState(false);
   const [showNavColorThird, setShowNavColorThird] = useState(false);
 
   return (

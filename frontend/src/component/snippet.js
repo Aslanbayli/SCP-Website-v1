@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useState } from 'react';
+import Axios from 'axios';
+
+
 import {
     MDBBtn,
     MDBCard,
@@ -12,7 +15,28 @@ import {
     MDBTableHead,
 } from "mdb-react-ui-kit";
 
-export default function App() {
+export default function Snippet() {
+
+    const server = Axios.create({
+        baseURL: "http://localhost:5000"
+      });
+
+    const [snippet, setSnippet] = useState("");
+
+    const addSnippet = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await server.post('/add-snippet', {
+                content: snippet,
+                user_id: 10
+            });
+            console.log(response.data)
+        } catch (err) {
+            console.error(err);
+        }
+
+    }
+
     return (
         <section className="vh-100" style={{ backgroundColor: "#eee" }}>
             <MDBContainer className="py-5 h-100">
@@ -27,10 +51,14 @@ export default function App() {
                                             label="Enter your snippet"
                                             id="form1"
                                             type="text"
+                                            value={snippet}
+                                            onChange={e => {
+                                                setSnippet(e.target.value);
+                                            }}
                                         />
                                     </MDBCol>
                                     <MDBCol size="12">
-                                        <MDBBtn type="submit">Save</MDBBtn>
+                                        <MDBBtn type="submit" onClick={addSnippet}>Save</MDBBtn>
                                     </MDBCol>
 
                                 </MDBRow>

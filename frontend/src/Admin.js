@@ -23,8 +23,6 @@ function Admin() {
         alert("You must be an admin");
     }
    
-
-  
 }
 
 

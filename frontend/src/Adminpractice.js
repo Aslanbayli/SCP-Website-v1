@@ -27,8 +27,8 @@ export default function Navbar() {
     const [difficulty, setDifficulty] = useState([])
 
     fetch('http://localhost:5000/all-problems')
-  .then((response) => response.json())
-  .then((data) => {
+    .then((response) => response.json())
+    .then((data) => {
     let results = [];
     let difficulties = []
     let links = []
@@ -133,11 +133,11 @@ export default function Navbar() {
 
                         <MDBCol md='2'>
                             <strong>Add</strong>
-                            <div class="col-4"><MDBBtn size='sm'>Button</MDBBtn></div>
-                            <div class="col-4"><MDBBtn size='sm'>Button</MDBBtn></div>
-                            <div class="col-4"><MDBBtn size='sm'>Button</MDBBtn></div>
-                            <div class="col-4"><MDBBtn size='sm'>Button</MDBBtn></div>
-                            <div class="col-4"><MDBBtn size='sm'>Button</MDBBtn></div>
+                            <div class="col-4"><MDBBtn size='sm'>Edit</MDBBtn></div>
+                            <div class="col-4"><MDBBtn size='sm'>Edit</MDBBtn></div>
+                            <div class="col-4"><MDBBtn size='sm'>Edit</MDBBtn></div>
+                            <div class="col-4"><MDBBtn size='sm'>Edit</MDBBtn></div>
+                            <div class="col-4"><MDBBtn size='sm'>Edit</MDBBtn></div>
 
 
                         </MDBCol>
